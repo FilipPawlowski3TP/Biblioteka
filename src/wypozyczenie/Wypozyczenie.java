@@ -25,7 +25,13 @@ public class Wypozyczenie {
         dataOddania=LocalDate.now();
         if(przewidywanaDataOddanial.isBefore(dataOddania)){
             long liczbaDni = Duration.between(dataOddania,przewidywanaDataOddanial).toDays();
+            return liczbaDni*KARA;
         }
         return 0;
+    }
+
+    public LocalDate prelonguj(){
+        przewidywanaDataOddanial = przewidywanaDataOddanial.plusDays(DLUGOSC_WYPOZYCZENIA);
+        return przewidywanaDataOddanial;
     }
 }
