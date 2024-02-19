@@ -1,5 +1,6 @@
 package wypozyczenie;
 
+import java.time.Duration;
 import java.time.LocalDate;
 
 public class Wypozyczenie {
@@ -20,6 +21,11 @@ public class Wypozyczenie {
 
     }
     public double oddaj(){
-
+        egzemplarz.setStan(Egzemplarz.Stan.WOLNY);
+        dataOddania=LocalDate.now();
+        if(przewidywanaDataOddanial.isBefore(dataOddania)){
+            long liczbaDni = Duration.between(dataOddania,przewidywanaDataOddanial).toDays();
+        }
+        return 0;
     }
 }
