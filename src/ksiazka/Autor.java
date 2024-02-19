@@ -46,4 +46,5 @@ public class Autor {
         return String.format("%s,%s (%d-%s)",nazwisko,imie,rokUrodzenia,rokSmierci);
 
     }
+
 }

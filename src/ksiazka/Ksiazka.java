@@ -1,5 +1,7 @@
 package ksiazka;
 
+import java.util.Objects;
+
 public class Ksiazka {
     private final String tytul;
     private final Gatunek gatunek;
@@ -33,4 +35,12 @@ public class Ksiazka {
     public String toString(){
         return String.format("%s,%s",tytul,autor.toString());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ksiazka ksiazka)) return false;
+        return rokWydania == ksiazka.rokWydania && Objects.equals(tytul, ksiazka.tytul) && gatunek == ksiazka.gatunek && Objects.equals(autor, ksiazka.autor);
+    }
+
 }

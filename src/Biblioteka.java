@@ -12,16 +12,32 @@ public class Biblioteka {
     ArrayList<Egzemplarz> egzemplarze = new ArrayList<>();
     ArrayList<Wypozyczenie> wypozyczenia = new ArrayList<>();
     public Ksiazka wyszukajKsiazke(String tytul){
-        return null;
+            for (Ksiazka ksiazka: ksiazki){
+                if(ksiazka.getTytul().equals(tytul)){
+                    return ksiazka;
+                }
+            }
     }
     public ArrayList<Ksiazka> wyszukajKsiazke(Autor autor){
-        return null;
+        for (Ksiazka ksiazka: ksiazki){
+            if(ksiazka.getAutor().equals(autor)){
+                ksiazki.add(ksiazka);
+            }
+        }
     }
     public ArrayList<Ksiazka> wyszukajKsiazke(Gatunek gatunek){
-        return null;
+        for (Ksiazka ksiazka: ksiazki){
+            if(ksiazka.getGatunek().equals(gatunek)){
+                ksiazki.add(ksiazka);
+            }
+        }
     }
     public Egzemplarz wyszukajWolnyEgzemplarz(){
-        return null;
+        for (Ksiazka ksiazka: ksiazki){
+            if(){
+                return
+            }
+        }
     }
 
 }

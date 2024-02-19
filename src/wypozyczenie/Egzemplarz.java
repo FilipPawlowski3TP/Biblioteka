@@ -2,6 +2,8 @@ package wypozyczenie;
 
 import ksiazka.Ksiazka;
 
+import java.util.Objects;
+
 public class Egzemplarz {
     private Ksiazka ksiazka;
 
@@ -25,6 +27,13 @@ public class Egzemplarz {
 
     public Ksiazka getKsiazka() {
         return ksiazka;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Egzemplarz that)) return false;
+        return Objects.equals(ksiazka, that.ksiazka) && stan == that.stan;
     }
 
 }
