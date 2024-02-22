@@ -39,8 +39,13 @@ public class Ksiazka {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ksiazka ksiazka)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
+        Ksiazka ksiazka = (Ksiazka) o;
         return rokWydania == ksiazka.rokWydania && Objects.equals(tytul, ksiazka.tytul) && gatunek == ksiazka.gatunek && Objects.equals(autor, ksiazka.autor);
     }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(tytul, gatunek, autor, rokWydania);
+    }
 }

@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("haha");
+        String menu = "1. Dodaj ksiazke";
+
     }
 }

@@ -4,8 +4,8 @@ import ksiazka.Ksiazka;
 import wypozyczenie.Egzemplarz;
 import wypozyczenie.Wypozyczenie;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Biblioteka {
     ArrayList<Ksiazka> ksiazki = new ArrayList<>();
@@ -17,6 +17,7 @@ public class Biblioteka {
                     return ksiazka;
                 }
             }
+        return null;
     }
     public ArrayList<Ksiazka> wyszukajKsiazke(Autor autor){
         for (Ksiazka ksiazka: ksiazki){
@@ -24,6 +25,7 @@ public class Biblioteka {
                 ksiazki.add(ksiazka);
             }
         }
+        return null;
     }
     public ArrayList<Ksiazka> wyszukajKsiazke(Gatunek gatunek){
         for (Ksiazka ksiazka: ksiazki){
@@ -31,13 +33,48 @@ public class Biblioteka {
                 ksiazki.add(ksiazka);
             }
         }
+        return null;
     }
     public Egzemplarz wyszukajWolnyEgzemplarz(){
-        for (Ksiazka ksiazka: ksiazki){
-            if(){
-                return
+        for (Egzemplarz e: egzemplarze){
+            if(e.getKsiazka().equals(ksiazki) && e.getStan() == Egzemplarz.Stan.WOLNY){
+                return e;
             }
-        }
+
+        } return null;
+    }
+    Scanner scanner = new Scanner(System.in);
+    public Autor dodajKsiazke() {
+        //dodaje nowa egzemplarz (przeprowadza dialog z uzytkownikime
+        // jesli ksiazka nie isnteje najpierw ja tworzy
+        System.out.println("Podaj Tytul ksiazki");
+        String tytulKsiazki = scanner.next();
+        System.out.println("Podaj gatunek ksiazki (Kryminał,Popularno Naukowe,Fantastyka,Biografia)");
+        Gatunek gatunek = switch (scanner.next()) {
+            case "Kryminał" -> Gatunek.KRYMINAŁ;
+            case "Popularno Naukowe" -> Gatunek.POPULARNO_NAUKOWE;
+            case "Fantastyka" -> Gatunek.FANTASTYKA;
+            case "Biografia" -> Gatunek.BIOGRAFIA;
+            default -> null;
+        };
+        System.out.println("Podaj rok wydania ksiazki");
+        int rok_wydania = scanner.nextInt();
+        Ksiazka nowaKsiazka = new Ksiazka(tytulKsiazki,gatunek,nowyAutor,rok_wydania);
+
     }
 
-}
+    public Autor stworzAutora(){
+
+        System.out.println("Podaj imie autora");
+        String imieAutor = scanner.next();
+        System.out.println("Podaj nazwisko autora");
+        String nazwiskoAutor = scanner.next();
+        System.out.println("Podaj rok urodzenia");
+        int rokUrodzeniaAutora = scanner.nextInt();
+        System.out.println("Jesli autor juz nie zyje to podaj jego date smierci, jesli zyje wpisz 0");
+        int rokSmierciAutora = scanner.nextInt();
+        Autor nowyAutor = new Autor(imieAutor,nazwiskoAutor,rokUrodzeniaAutora,rokSmierciAutora);
+        return nowyAutor;
+    }
+
+};
