@@ -59,10 +59,11 @@ public class Biblioteka {
         };
         System.out.println("Podaj rok wydania ksiazki");
         int rok_wydania = scanner.nextInt();
-        Ksiazka nowaKsiazka = new Ksiazka(tytulKsiazki,gatunek,nowyAutor,rok_wydania);
+
 
     }
-
+    // pan adam ma na gicie;
+    
     public Autor stworzAutora(){
 
         System.out.println("Podaj imie autora");
